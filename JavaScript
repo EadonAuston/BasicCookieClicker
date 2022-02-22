@@ -1,0 +1,280 @@
+var score = 0;
+  var numberofClicks = 0;
+	let achievements = {
+    firstClick : false,
+    hundredClick : false,
+    thousandClick : false,
+
+  }
+  var totalIncome = cursors + grandmas * 5 + ovens * 20 + farms * 60 + factories * 220 + entireindustries * 450 + bigbooms * 1000;
+	let canPrestige = false;
+	var prestigeFactor = .01 * score;
+	var cursorCost=15;
+	var cursors=0;
+  var incomeType = {
+    cursor: 1,
+    grandma: 5,
+    oven: 20,
+    farm : 60, 
+    factory: 220, 
+    entireindustries: 450,
+    bigboom : 1000
+  }
+  var costType = {
+    cursor: 15,
+    grandma: 100,
+    oven: 700,
+    farm : 5000, 
+    factory: 30000, 
+    entireindustries: 120000,
+    bigboom : 300000
+  }
+  var objectType = {
+    cursor: 0,
+    grandma: 0,
+    oven: 0,
+    farm : 0, 
+    factory: 0, 
+    entireindustries: 0,
+    bigboom : 0
+  }
+	var cursorIncome= 1;
+
+	var grandmaCost=100;
+	var grandmas=0;
+	var grandmaIncome=5;
+	var ovenCost=700;
+	var ovens=0;
+	var ovenIncome=20;
+	var farmCost=5000;
+	var farms=0;
+	var farmIncome=60;
+	var factoryCost=30000;
+	var factories=0;
+	var factoryIncome=220;
+	var entireindustriesCost=120000;
+	var entireindustries=0;
+	var entireindustriesIncome=450;
+	var bigboomCost=300000;
+	var bigbooms=0;
+	var bigboomIncome=1000;
+	var upgrades = cursors + grandmas;
+  let prestiges = 1;
+  let initialPrestige = 100 * prestiges;
+  let prestigeMultiplier = cursorIncome - 0;
+  
+function leftArrow(){
+document.getElementById("menu").style.display = 'block';
+document.getElementById("shop").style.display = 'none';
+document.getElementById("info").style.display = 'none';
+}
+function rightArrow(){
+
+document.getElementById("info").style.display = 'block';
+document.getElementById("menu").style.display = 'none';
+document.getElementById("shop").style.display = 'none';
+
+}
+function openShop(){
+document.getElementById("info").style.display = 'none';
+document.getElementById("menu").style.display = 'none';
+document.getElementById("shop").style.display = 'block';
+}
+function checkClick(){
+if(numberofClicks >= 100){
+achievements.firstClick = true;
+}
+function buyObject(a, b, c){
+if(score >= a){
+  score -= a;
+  b++;
+  
+}
+
+}
+
+}
+function addToClicks(amount) {
+numberofClicks = numberofClicks + amount;
+document.getElementById("numberofClicks").innerHTML = numberofClicks;
+}
+
+
+
+function buyCursor(){
+if(score >= cursorCost) {
+	score = score - cursorCost;
+	
+  cursors += 1;
+	cursorCost = Math.round(cursorCost * 1.15)
+	
+byId('score').innerHTML = score;
+	document.getElementById("cursorCost").innerHTML = cursorCost;
+
+  document.getElementById("cursors").innerHTML = cursors;
+	}
+}
+function buyGrandma(){
+if(score >= grandmaCost) {
+	score = score - grandmaCost;
+	grandmas = grandmas+1;
+	grandmaCost = Math.round(grandmaCost * 1.15)
+	
+	byId('score').innerHTML = score;
+	document.getElementById("grandmaCost").innerHTML = grandmaCost;
+	document.getElementById("grandmas").innerHTML = grandmas;
+	}
+}
+function buyOven(){
+if(score >= ovenCost) {
+	score = score - ovenCost;
+	ovens = ovens+1;
+	ovenCost = Math.round(ovenCost * 1.15)
+	
+	
+	document.getElementById("ovenCost").innerHTML = ovenCost;
+	document.getElementById("ovens").innerHTML = ovens;
+	}
+}
+function buyFarm(){
+if(score >= farmCost) {
+	score = score - farmCost;
+	farms = farms+1;
+	farmCost = Math.round(farmCost * 1.15)
+	
+	document.getElementById("farmCost").innerHTML = farmCost;
+	document.getElementById("farms").innerHTML = farms;
+	}
+}
+function buyFactory(){
+if(score >= factoryCost) {
+	score = score - factoryCost;
+	factories = factories+1;
+	factoryCost = Math.round(factoryCost * 1.15)
+	
+	
+	document.getElementById("factoryCost").innerHTML = factoryCost;
+	document.getElementById("factories").innerHTML = factories;
+	}
+}
+function buyEntireIndustries(){
+if(score >= entireindustriesCost) {
+	score = score - entireindustriesCost;
+	entireindustries = entireindustries+1;
+	entireindustriesCost = Math.round(entireindustriesCost * 1.15)
+	
+	document.getElementById("entireindustriesCost").innerHTML = entireindustriesCost;
+	document.getElementById("entireindustries").innerHTML = entireindustries;
+	}
+}
+function buyBigBoom(){
+if(score >= bigboomCost) {
+	score = score - bigboomCost;
+	bigbooms = bigbooms+1;
+	bigboomCost = Math.round(bigboomCost * 1.15)
+	
+	document.getElementById("bigboomCost").innerHTML = bigboomCost;
+	document.getElementById("bigbooms").innerHTML = bigbooms;
+	}
+}
+
+function addToScore(amount) {
+
+score += amount;
+numberofClicks++;
+byId('score').innerHTML = score;
+document.getElementById("numberofClicks").innerHTML = numberofClicks;
+
+}
+
+function buyPrestige() {
+
+if(score >= initialPrestige) 
+{
+  canPrestige = true;
+  prestiges++;
+  initialPrestige = Math.round(10 * initialPrestige);
+  score = 0; cursors = 0; grandmas = 0; ovens = 0; farms = 0; factories = 0; 
+  entireindustries = 0; bigbooms = 0;
+  cursorIncome = Math.round(cursorIncome * 120)/100;
+  grandmaIncome = Math.round(grandmaIncome * 120)/100;
+  ovenIncome = Math.round(ovenIncome * 120)/100;
+  farmIncome = Math.round(farmIncome * 120)/100;
+  factoryIncome = Math.round(factoryIncome * 120)/100;
+  entireindustriesIncome = Math.round(entireindustriesIncome * 120)/100;
+  bigboomIncome = Math.round(bigboomIncome * 120)/100;
+  cursorCost = 15;
+  grandmaCost = 100;
+  ovenCost = 700;
+  farmCost = 5000;
+  factoryCost = 30000;
+  entireindustriesCost = 120000;
+  bigboomCost = 300000;
+  prestigeMultiplier *= 1.2;
+  document.getElementById("prestiges").innerHTML = prestiges;
+  document.getElementById("initialPrestige").innerHTML = initialPrestige;
+  
+  byId('score').innerHTML = score;
+  byId('cursors').innerHTML = cursors;
+    byId('cursorIncome').innerHTML = cursorIncome;
+  document.getElementById("grandmaIncome").innerHTML = grandmaIncome;
+  document.getElementById("ovenIncome").innerHTML = ovenIncome;
+  document.getElementById("farmIncome").innerHTML = farmIncome;
+  document.getElementById("factoryIncome").innerHTML = factoryIncome;
+  document.getElementById("entireindustriesIncome").innerHTML = entireindustriesIncome;
+  document.getElementById("bigboomIncome").innerHTML = bigboomIncome;
+  document.getElementById("prestigeMultiplier").innerHTML = prestigeMultiplier;
+  document.getElementById("cursorCost").innerHTML = cursorCost;
+  document.getElementById("grandmaCost").innerHTML = grandmaCost;
+  document.getElementById("ovenCost").innerHTML = ovenCost;
+  document.getElementById("farmCost").innerHTML = farmCost;
+  document.getElementById("factoryCost").innerHTML = factoryCost;
+  document.getElementById("entireindustriesCost").innerHTML = entireindustriesCost;
+  document.getElementById("bigboomCost").innerHTML = bigboomCost;
+  
+}
+}
+
+setInterval(function() {
+score += (cursors * cursorIncome);
+score += (grandmas * grandmaIncome);
+score += (ovens * ovenIncome);
+score += (farms * farmIncome);
+score += factories * factoryIncome;
+score += entireindustries * entireindustriesIncome;
+score += bigbooms * bigboomIncome;
+
+document.getElementById("score").innerHTML = Math.round(score);
+document.getElementById("prestigeMultiplier").innerHTML = prestigeMultiplier;
+document.getElementById("cursors").innerHTML = cursors;
+document.getElementById("cursorIncome").innerHTML = cursorIncome;
+document.getElementById("cursorCost").innerHTML = cursorCost;
+document.getElementById("grandmaIncome").innerHTML = grandmaIncome;
+document.getElementById("ovenIncome").innerHTML = ovenIncome;
+document.getElementById("farmIncome").innerHTML = farmIncome;
+document.getElementById("factoryIncome").innerHTML = factoryIncome;
+document.getElementById("entireindustriesIncome").innerHTML = entireindustriesIncome;
+document.getElementById("bigboomIncome").innerHTML = bigboomIncome;
+
+document.getElementById("grandmas").innerHTML = grandmas;
+document.getElementById("ovens").innerHTML = ovens;
+document.getElementById("farms").innerHTML = farms;
+document.getElementById("factories").innerHTML = factories;
+document.getElementById("entireindustries").innerHTML = entireindustries;
+document.getElementById("bigbooms").innerHTML = bigbooms;
+checkClick();
+
+}, 1000);
+
+setInterval(function() {
+document.getElementById("numberofClicks").innerHTML = numberofClicks;
+
+totalIncome = cursors * cursorIncome + grandmas * grandmaIncome + ovens * 20 + farms * 60 + factories * 220 + entireindustries * 450 + bigbooms * 1000;
+document.getElementById("totalIncome").innerHTML = totalIncome;
+document.getElementById("numberofClicks").innerHTML = numberofClicks;
+
+
+}, 1000);
+
+var byId = function( id ) { 
+  return document.getElementById( id ); };
