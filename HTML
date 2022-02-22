@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<style></style>
+<head>
+	<title>Clicker Game</title>
+</head>
+
+<body>
+<div class="cookie" onclick="addToScore(1)"; onclick="addToClicks(1)">
+
+<div class="cookie" style="width: 80px; height: 80px; position: absolute; top:50px; left: 200px; background-color: brown"></div>
+
+</div>
+  <div class="alignLeft">
+		<p> Score: <span id="score">0</span></p>
+    <p> Number of Clicks: <span id="numberofClicks">0</span></p>
+
+    <img src="My files/Downloads/download.jpeg" alt="cookie" style="position:relative; top:0px; left: 200px; "height="256px" width="256px" onclick="addToScore(1)" onclick="addToClicks(1)">
+ <div class="greenbackground" style="top: 150px;">
+  <div class="prestigebutton">
+<p style="font-size:21px; position:absolute; left:50px; top:-35px; text-align: center;">If you Prestige: Your current score and upgrades will go to 0, but you will have a permanent multiplier to all your income. Every time you prestige, the income will be multiplied by <strong>1.2x</strong> </p>
+</div>
+<button style="position:relative; top:-190px; left:70px; background-color:red; width:250px; height:100px;" onclick="buyPrestige()" 
+onclick="caPrestige()"><h1 style="font-weight: bold; font-size:30px;">Click to Prestige</button>
+</div>
+  
+  <h1 style="font:bold; position:absolute; top:530px; left:60px;">Achievements</h1>
+  <div class="achievements">0</div>
+	</div>
+
+	<div class="alignRight">
+	 <h1>
+     <span>
+       <a href="#"  onclick="leftArrow()" style="text-decoration:none; position:relative;" >
+         &larr;
+         </a>
+      </span>
+      <span onclick = "openShop()">
+        <a href="#">
+          Shop
+        </a>
+      </span>
+      <span>
+        <a href="#" onclick="rightArrow()" style="text-decoration:none; " >
+          &rarr;
+        </a>
+      </span>
+    </h1>
+   <div id="info"><p style="text-align: center; margin: 5px; position:absolute;">Welcome to Cookie Clicker! Of course this may not be the official version, I still hope you have fun playing it! As you collect more cookies you can buy upgrades and prestige, giving you a multiplier bonus. Beware, prestiging will reset upgrades and score to 0, while making all of the incomes = 1.2x.</p></div>
+  <div id="menu">
+    <h1 style="text-align:center">Achievements:</h1>
+    <br/>
+    <p style="text-align:center;">I am currently working on the achievement system for this game. I plan to have achievements after a certain amount of clicks, income, and for a number of prestiges.</p>
+  </div>
+<div id="shop">
+  <table border="1" style="border-color:black; text-align:center;">
+
+	
+  
+  <div class="alignRight">
+  <tr>
+	<td>Upgrade</td><td>Cost</td><td>Number Owned</td><td> Income Per Second</td>
+	</tr>
+	<tr>
+	<td><div class="cursorUpgrade"><div class="upgradeButtonspecial" onclick="buyCursor()">Cursor</div></div><td><span id="cursorCost">15</span></td><td><span id="cursors">0</span></button></td><td><span id="cursorIncome">1</span></td>
+	</tr>
+	<tr>
+	<td><div class="upgradeButtonspecial" onclick="buyGrandma()">Grandma</div><td><span id="grandmaCost">100</span></td><td><span id="grandmas">0</span></button></td><td><span id="grandmaIncome">5</span></td>
+	</tr>
+	<tr>
+	<td><div class="upgradeButtonspecial" onclick="buyOven()">Oven</div><td><span 
+  id="ovenCost">700</span></td><td><span id="ovens">0</span></button></td><td><span id="ovenIncome">20</span></td>
+	</tr>
+	<tr>
+	<td><div class="upgradeButtonspecial" onclick="buyFarm()">Farm</div><td><span id="farmCost">5000</span></td><td><span id="farms">0</span></button></td><td><span id="farmIncome">60</span></td>
+	</tr>
+	<tr>
+	<td><div class="upgradeButtonspecial" onclick="buyFactory()">Factory</div></td><td><span id="factoryCost">30000</span></td><td><span id="factories">0</span></button></td><td><span id="factoryIncome">220</span></td>
+	</tr>
+	<tr>
+	<td><div class="upgradeButtonspecial" onclick="buyEntireIndustries()">Industry</div></td><td><span id="entireindustriesCost">120000</span></td><td><span id="entireindustries">0</span></button></td><td><span id="entireindustriesIncome">450</span></td>
+	</tr>
+	<tr>
+	<td><div class="upgradeButtonspecial" onclick="buyBigBoom()">Big Boom</div><td><span id="bigboomCost">300000</span></td><td><span id="bigbooms">0</span></button></td><td><span id="bigboomIncome">1000</span></td>
+	</tr>
+  </table>
+</div>
+</div>
+<div style="position:absolute; top: 550px; right: 150px;">
+<h1 style ="font-size:20px;">Total Income Per Second: <span id="totalIncome">0</span></h1>
+<h1 style ="font-size:20px;">Number of Times Prestiged: <span id="prestiges">1</span></h1>
+<h1 style ="font-size:20px;">Cost for Next Prestige: <span id="initialPrestige">100</span></h1>
+<h1 style ="font-size:20px;">Prestige Multiplier: <span id="prestigeMultiplier">1</span></h1>
+</div>
+</br>
+<script></script>
+</body>
+</html>
